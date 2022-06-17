@@ -11,6 +11,7 @@ package model;
 public class Servico {
     private Cliente cliente;
     private Prestador prestador;
+    private String nome;
     private String descricao;
     private String localizacao;
     private String categoria;
@@ -29,6 +30,14 @@ public class Servico {
 
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getDescricao() {
