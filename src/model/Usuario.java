@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author micae
@@ -15,7 +17,8 @@ public abstract class  Usuario {
     protected String endereco;
     protected String telefone;
     protected float pontuacao;
-    
+
+     
     public String getNome() {
         return nome;
     }
@@ -62,7 +65,6 @@ public abstract class  Usuario {
 
     public void setPontuacao(float pontuacao) {
         this.pontuacao = pontuacao;
-    }
-    
-    
+    } 
+   
 }

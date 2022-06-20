@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author micae
@@ -11,15 +13,13 @@ package model;
 public class Servico {
     private Cliente cliente;
     private Prestador prestador;
-    private String status;
     private String nome;
     private String descricao;
     private String localizacao;
     private String categoria;
+    private String status;
+   
 
-    public Servico(){
-        this.status = "Pendente";
-    }
     public Cliente getCliente() {
         return cliente;
     }
@@ -34,7 +34,6 @@ public class Servico {
 
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
-        this.status = "Em andamento";
     }
 
     public String getNome() {
@@ -68,4 +67,15 @@ public class Servico {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    
 }
+
