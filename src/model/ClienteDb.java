@@ -38,4 +38,23 @@ public class ClienteDb {
         }
         return false;
     }
+    
+    public boolean insertCliente(Cliente cliente){
+        try{
+            String sql = "insert into clientes"
+                +"(nome, cpf, idade, endereco, telefone) "
+                + "values ('"+cliente.getNome()
+                + "', '" +cliente.getCpf() 
+                + "', " +cliente.getIdade()
+                +", '" +cliente.getEndereco()
+                +"', '" +cliente.getTelefone()
+                +"');";
+            System.out.println(sql);
+            this.statement.execute(sql);
+            return true;
+        }catch(Exception e){
+            System.out.println("Erro: " + e.getMessage());
+            return false;
+        }
+    }
 }

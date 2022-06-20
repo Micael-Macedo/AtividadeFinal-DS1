@@ -63,6 +63,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,6 +144,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        CadastroServico cs = new CadastroServico();
+        cs.setVisible(true);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,6 +199,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
     public javax.swing.JTextField txtEndereco;
     public javax.swing.JTextField txtIdade;
     public javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtTelefone;
+    public javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
