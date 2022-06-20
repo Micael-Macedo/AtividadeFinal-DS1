@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
 /**
  *
  * @author micae
@@ -37,4 +37,47 @@ public class ServicoDB {
         }
         return false;
     }
+    
+     public boolean insertServico(Servico servico){
+        try{
+            String sql = "insert into coffee "
+                    + "(cliente, prestador, nome,descricao,localizacao,categoria,status) "
+                    + "values ('"+servico.getCliente()
+                    +"', "+servico.getPrestador()
+                    +", "+servico.getNome()
+                    +", "+servico.getDescricao()
+                    +", "+servico.getLocalizacao()
+                    +", "+servico.getCategoria()
+                    +", "+servico.getStatus()
+                    +");";
+            //mostrar se o script do banco está sendo montado corretamente
+            System.out.println(sql);
+            this.statement.execute(sql);
+            return true;
+        }catch(Exception e){
+            System.out.println("Erro: "+e.getMessage());
+            return false;
+        }
+    }
+     
+      public ArrayList<Servico> listServico(){
+        ArrayList<Servico> coffees = new ArrayList<>();
+        try{
+            String sql = "select * from servicos";
+            this.resultSet = statement.executeQuery(sql);
+            Servico servico;
+            while (this.resultSet.next()) {
+                servico = new Servico();
+                String brand = resultSet.getString("brand");
+                coffee.setBrand(brand);
+                coffee.setPrice(resultSet.getFloat("price"));
+                coffee.setPrice(resultSet.getFloat("weight"));
+                coffees.add(coffee);
+            }
+        }catch(Exception e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        return coffees;
+    }
+     
 }
