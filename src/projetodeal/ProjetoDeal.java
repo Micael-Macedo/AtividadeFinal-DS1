@@ -29,12 +29,9 @@ public class ProjetoDeal {
         }
         CadastroUsuario cadastroUsuario = new CadastroUsuario();
         CadastroServico cadastroServico = new CadastroServico();
-        cadastroUsuario.setVisible(true);
-        ca  dastroServico.
-        if(cadastroUsuario.btnCadastrar.isSelected()){
-            cadastroUsuario.setVisible(false);
-            cadastroServico.setVisible(true);
-        }
+        cadastroUsuario.setVisible(false);
+        cadastroServico.setVisible(true);
+       
         
         ClienteController clienteController = new ClienteController(cadastroUsuario, cdb);
     }

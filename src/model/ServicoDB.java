@@ -19,9 +19,9 @@ public class ServicoDB {
     private ResultSet resultSet;
     
     public boolean connect(){
-        String server = "jdbc:mysql://localhost:3306/projetodeal";
+        String server = "jdbc:mysql://localhost:3306/deal";
         String user = "root";
-        String pwd = "1234";
+        String pwd = "Azsxdc55";
         String driver = "com.mysql.cj.jdbc.Driver";
         
         try{
@@ -41,10 +41,11 @@ public class ServicoDB {
      public boolean insertServico(Servico servico){
         try{
             String sql = "insert into coffee "
-                    + "(nome,descricao,categoria) "
+                    + "(nome,descricao,categoria,status) "
                     + "values ('"+servico.getNome()
                     +"', '"+servico.getDescricao()
                     +"', '"+servico.getCategoria()
+                    +"', '"+servico.getStatus()
                     +"');";
             //mostrar se o script do banco está sendo montado corretamente
             System.out.println(sql);
@@ -68,8 +69,6 @@ public class ServicoDB {
                 servico.setNome(nome);
                 String descricao = resultSet.getString("descricao");
                 servico.setNome(descricao);
-                String localizacao = resultSet.getString("localizacao");
-                servico.setNome(localizacao);
                 String categoria = resultSet.getString("categoria");
                 servico.setNome(categoria);
                 String status = resultSet.getString("status");

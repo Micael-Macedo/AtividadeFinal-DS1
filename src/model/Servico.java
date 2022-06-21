@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Servico {
     private Cliente cliente;
-    private Prestador prestador;
     private String nome;
     private String descricao;
     private String localizacao;
@@ -26,14 +25,6 @@ public class Servico {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-
-    public Prestador getPrestador() {
-        return prestador;
-    }
-
-    public void setPrestador(Prestador prestador) {
-        this.prestador = prestador;
     }
 
     public String getNome() {

@@ -57,13 +57,15 @@ public class ServicoController implements ActionListener{
         defaultTable.addColumn("Nome");
         defaultTable.addColumn("Categoria");
         defaultTable.addColumn("Descriçao");
+        defaultTable.addColumn("Status");
         // criar as colunas de cada linha
-        Object [] colunas  = new Object[3];
+        Object [] colunas  = new Object[4];
         ArrayList<Servico> servicos = this.servicoDB.listServico();
         for (Servico serv : servicos) {
             colunas[0] = serv.getNome();
             colunas[1] = serv.getCategoria();
             colunas[2] = serv.getDescricao();
+            colunas[3] = serv.getStatus();
             defaultTable.addRow(colunas);
         }
     }
