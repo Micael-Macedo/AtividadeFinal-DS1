@@ -41,15 +41,11 @@ public class ServicoDB {
      public boolean insertServico(Servico servico){
         try{
             String sql = "insert into coffee "
-                    + "(cliente, prestador, nome,descricao,localizacao,categoria,status) "
-                    + "values ('"+servico.getCliente()
-                    +"', "+servico.getPrestador()
-                    +", "+servico.getNome()
-                    +", "+servico.getDescricao()
-                    +", "+servico.getLocalizacao()
-                    +", "+servico.getCategoria()
-                    +", "+servico.getStatus()
-                    +");";
+                    + "(nome,descricao,categoria) "
+                    + "values ('"+servico.getNome()
+                    +"', '"+servico.getDescricao()
+                    +"', '"+servico.getCategoria()
+                    +"');";
             //mostrar se o script do banco está sendo montado corretamente
             System.out.println(sql);
             this.statement.execute(sql);
@@ -61,23 +57,29 @@ public class ServicoDB {
     }
      
       public ArrayList<Servico> listServico(){
-        ArrayList<Servico> coffees = new ArrayList<>();
+        ArrayList<Servico> servicos = new ArrayList<>();
         try{
             String sql = "select * from servicos";
             this.resultSet = statement.executeQuery(sql);
             Servico servico;
             while (this.resultSet.next()) {
                 servico = new Servico();
-                String brand = resultSet.getString("brand");
-                coffee.setBrand(brand);
-                coffee.setPrice(resultSet.getFloat("price"));
-                coffee.setPrice(resultSet.getFloat("weight"));
-                coffees.add(coffee);
+                String nome = resultSet.getString("nome");
+                servico.setNome(nome);
+                String descricao = resultSet.getString("descricao");
+                servico.setNome(descricao);
+                String localizacao = resultSet.getString("localizacao");
+                servico.setNome(localizacao);
+                String categoria = resultSet.getString("categoria");
+                servico.setNome(categoria);
+                String status = resultSet.getString("status");
+                servico.setNome(status);
+                servicos.add(servico);
             }
         }catch(Exception e){
             System.out.println("Error: "+e.getMessage());
         }
-        return coffees;
+        return servicos;
     }
      
 }

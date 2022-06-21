@@ -30,7 +30,7 @@ public class CadastroServico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Categoria_servico = new javax.swing.JComboBox<>();
+        categoria = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         descricao = new javax.swing.JTextField();
         btnCadastro = new javax.swing.JButton();
@@ -49,11 +49,11 @@ public class CadastroServico extends javax.swing.JFrame {
 
         jLabel2.setText("Categoria");
 
-        Categoria_servico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleciobne uma opção abaixo>", "Elétrica", "Hidraulica", "Carreto", "Mecânica", "Marcenaria", "Pintura", "Manutenção de computador" }));
-        Categoria_servico.setToolTipText("");
-        Categoria_servico.addActionListener(new java.awt.event.ActionListener() {
+        categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleciobne uma opção abaixo>", "Elétrica", "Hidraulica", "Carreto", "Mecânica", "Marcenaria", "Pintura", "Manutenção de computador" }));
+        categoria.setToolTipText("");
+        categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Categoria_servicoActionPerformed(evt);
+                categoriaActionPerformed(evt);
             }
         });
 
@@ -78,7 +78,7 @@ public class CadastroServico extends javax.swing.JFrame {
                         .addComponent(descricao)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Categoria_servico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(categoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(nome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnCadastro))
@@ -94,7 +94,7 @@ public class CadastroServico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Categoria_servico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -124,9 +124,9 @@ public class CadastroServico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
 
-    private void Categoria_servicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Categoria_servicoActionPerformed
+    private void categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Categoria_servicoActionPerformed
+    }//GEN-LAST:event_categoriaActionPerformed
 
     private void descricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descricaoActionPerformed
         // TODO add your handling code here:
@@ -168,8 +168,8 @@ public class CadastroServico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> Categoria_servico;
     public javax.swing.JButton btnCadastro;
+    public javax.swing.JComboBox<String> categoria;
     public javax.swing.JTextField descricao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
