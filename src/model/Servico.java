@@ -18,6 +18,9 @@ public class Servico {
     private String categoria;
     private String status;
    
+    public Servico(){
+        this.setStatus("Pendente");
+    }
 
     public Cliente getCliente() {
         return cliente;

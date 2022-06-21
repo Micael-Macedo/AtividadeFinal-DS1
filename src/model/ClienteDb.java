@@ -20,7 +20,7 @@ public class ClienteDb {
     private ResultSet resultSet;
     
     public boolean connect(){
-        String server = "jdbc:mysql://localhost:3306/projetodeal";
+        String server = "jdbc:mysql://localhost:3306/deal";
         String user = "root";
         String pwd = "1234";
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -29,6 +29,8 @@ public class ClienteDb {
             Class.forName(driver);
             this.connection = (Connection)DriverManager.getConnection(server, user, pwd);
             this.statement = (Statement)this.connection.createStatement();
+            
+            
         }catch(Exception e){
             System.out.println("Erro ao conectar ao banco: "+e);
         }

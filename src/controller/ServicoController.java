@@ -33,11 +33,15 @@ public class ServicoController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.cadastroServico.btnCadastro ){
+        
+        if (e.getSource() == this.cadastroServico.btnCadastro){
             Servico servico = new Servico();
             servico.setNome(this.cadastroServico.nome.getText());
             servico.setCategoria(this.cadastroServico.categoria.getSelectedItem().toString()); ///////////////////////////////
             servico.setDescricao(this.cadastroServico.descricao.getText());
+            System.out.println(servico.getStatus());
+            this.servicoDB.insertServico(servico);
+            
            if(this.servicoDB.insertServico(servico)){
                JOptionPane.showMessageDialog(null, "Sucesso ao inserir o café!");
                fillTable(this.listaServicos.tabelaServico);
@@ -45,9 +49,9 @@ public class ServicoController implements ActionListener{
            }else{
                JOptionPane.showMessageDialog(null, "Erro ao inserir os dados", "", JOptionPane.ERROR_MESSAGE);
            }
+           
         } 
    }
-    // JTable table é a tabela que vai estar na tela
     public void fillTable(JTable table){
         //criar essa defaultTable para a gente conseguir manipular os dados que vão estar nela
         DefaultTableModel defaultTable = new DefaultTableModel();
