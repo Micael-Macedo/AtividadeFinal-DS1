@@ -4,6 +4,9 @@
  */
 package views;
 
+import controller.ServicoController;
+import model.ServicoDB;
+
 /**
  *
  * @author micae
@@ -145,10 +148,18 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        // Dispose em resumo limpa a tela anterior
         this.dispose();
-        CadastroServico cs = new CadastroServico();
-        cs.setVisible(true);
+        ServicoDB sdb = new ServicoDB();
+        if (sdb.connect()) {
+            System.out.println("Conexão ok");
+        } else {
+            System.out.println("algo de errado n esta certo");
+        }
+        CadastroServico cadastroServico = new CadastroServico();
+        cadastroServico.setVisible(true);
+        ListaServicos listaServicos = new ListaServicos();
+        ServicoController servicoController = new ServicoController(cadastroServico, listaServicos, sdb);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

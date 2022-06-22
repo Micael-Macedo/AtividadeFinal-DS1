@@ -6,13 +6,8 @@ package projetodeal;
 
 
 import controller.ClienteController;
-import controller.ServicoController;
-import java.awt.event.ActionListener;
 import model.ClienteDb;
-import model.ServicoDB;
-import views.CadastroServico;
 import views.CadastroUsuario;
-import views.ListaServicos;
 /**
  *
  * @author micae
@@ -25,20 +20,21 @@ public class ProjetoDeal {
     public static void main(String[] args) {
         // TODO code application logic here
         ClienteDb cdb = new ClienteDb();
-        ServicoDB sdb = new ServicoDB();
+        
         if(cdb.connect()){
             System.out.println("Conexão ok");
         }else{
             System.out.println("algo de errado n esta certo");
         }
+        
         CadastroUsuario cadastroUsuario = new CadastroUsuario();
-        CadastroServico cadastroServico = new CadastroServico();
-        cadastroUsuario.setVisible(false);
-        cadastroServico.setVisible(true);
+        
+        cadastroUsuario.setVisible(true);
+
        
-        ListaServicos listaServicos = new ListaServicos();
+       
         ClienteController clienteController = new ClienteController(cadastroUsuario, cdb);
-        ServicoController servicoController = new ServicoController(cadastroServico,listaServicos, sdb);
+       
     }
     
 }

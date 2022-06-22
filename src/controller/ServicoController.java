@@ -43,7 +43,7 @@ public class ServicoController implements ActionListener{
             this.servicoDB.insertServico(servico);
             
            if(this.servicoDB.insertServico(servico)){
-               JOptionPane.showMessageDialog(null, "Sucesso ao inserir o café!");
+               JOptionPane.showMessageDialog(null, "Sucesso ao inserir");
                fillTable(this.listaServicos.tabelaServico);
                this.listaServicos.setVisible(true);
            }else{

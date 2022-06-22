@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 /**
  *
  * @author micae
@@ -18,8 +19,11 @@ public class ServicoDB {
     private Statement statement;
     private ResultSet resultSet;
     
+    
+    
     public boolean connect(){
-        String server = "jdbc:mysql://localhost:3306/projetodeal";
+        System.out.println("Cheguei no Connect ServicoDB");
+        String server = "jdbc:mysql://localhost:3306/deal";
         String user = "root";
         String pwd = "1234";
         String driver = "com.mysql.cj.jdbc.Driver";
@@ -30,18 +34,20 @@ public class ServicoDB {
             this.statement = (Statement)this.connection.createStatement();
             System.out.println(this.statement);
             System.out.println("Sucesso ao entrar no banco serviços");
-        }catch(Exception e){
+        }
+        catch(Exception e){
             System.out.println("Erro ao conectar ao banco: "+e);
         }
         
         if(this.connection !=  null){
-            System.out.println("Funcionou");
+            System.out.println("Funcionou ServicoDB");
             return true;
         }
         return false;
     }
     
      public boolean insertServico(Servico servico){
+         
         try{
             String sql = "insert into servicos"
                     +"(nome,descricao,categoria,status) "
@@ -82,6 +88,7 @@ public class ServicoDB {
             System.out.println("Error: "+e.getMessage());
         }
         return servicos;
+        
     }
-     
+    
 }
