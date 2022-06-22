@@ -146,9 +146,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        CadastroServico cs = new CadastroServico();
-        cs.setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

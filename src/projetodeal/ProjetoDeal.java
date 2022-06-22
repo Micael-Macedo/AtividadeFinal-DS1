@@ -7,9 +7,11 @@ package projetodeal;
 
 import controller.ClienteController;
 import controller.ServicoController;
+import controller.HomeClienteController;
 import java.awt.event.ActionListener;
 import model.ClienteDb;
 import model.ServicoDB;
+import views.HomeCliente;
 import views.CadastroServico;
 import views.CadastroUsuario;
 import views.ListaServicos;
@@ -31,14 +33,16 @@ public class ProjetoDeal {
         }else{
             System.out.println("algo de errado n esta certo");
         }
+        HomeCliente homeCliente = new  HomeCliente();
         CadastroUsuario cadastroUsuario = new CadastroUsuario();
         CadastroServico cadastroServico = new CadastroServico();
-        cadastroUsuario.setVisible(false);
-        cadastroServico.setVisible(true);
-       
         ListaServicos listaServicos = new ListaServicos();
-        ClienteController clienteController = new ClienteController(cadastroUsuario, cdb);
+        
+        
+        ClienteController clienteController = new ClienteController(cadastroUsuario, cdb, homeCliente);
         ServicoController servicoController = new ServicoController(cadastroServico,listaServicos, sdb);
+        HomeClienteController homeClienteController = new HomeClienteController(clienteController, servicoController);
+        homeClienteController.clienteController.cadastroUsuario.setVisible(true);
     }
     
 }

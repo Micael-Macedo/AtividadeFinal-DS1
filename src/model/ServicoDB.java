@@ -28,7 +28,6 @@ public class ServicoDB {
             Class.forName(driver);
             this.connection = (Connection)DriverManager.getConnection(server, user, pwd);
             this.statement = (Statement)this.connection.createStatement();
-            System.out.println(this.statement);
             System.out.println("Sucesso ao entrar no banco serviços");
         }catch(Exception e){
             System.out.println("Erro ao conectar ao banco: "+e);
@@ -71,11 +70,11 @@ public class ServicoDB {
                 String nome = resultSet.getString("nome");
                 servico.setNome(nome);
                 String descricao = resultSet.getString("descricao");
-                servico.setNome(descricao);
+                servico.setDescricao(descricao);
                 String categoria = resultSet.getString("categoria");
-                servico.setNome(categoria);
+                servico.setCategoria(categoria);
                 String status = resultSet.getString("status");
-                servico.setNome(status);
+                servico.setStatus(status);
                 servicos.add(servico);
             }
         }catch(Exception e){

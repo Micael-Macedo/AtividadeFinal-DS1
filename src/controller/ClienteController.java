@@ -6,24 +6,33 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import model.Cliente;
 import model.ClienteDb;
 import views.CadastroUsuario;
+import views.ListaServicos;
+import views.HomeCliente;
 
 /**
  *
  * @author micae
  */
 public class ClienteController implements ActionListener{
-    private CadastroUsuario cadastroUsuario;
-    private ClienteDb clienteDb;
+    public CadastroUsuario cadastroUsuario;
+    public ClienteDb clienteDb;
+    public HomeCliente homeCliente;
     
-    public ClienteController(CadastroUsuario cadastroUsuario, ClienteDb clienteDb){
+    public ClienteController(CadastroUsuario cadastroUsuario, ClienteDb clienteDb, HomeCliente homeCliente){
         this.cadastroUsuario = cadastroUsuario;
         this.clienteDb = clienteDb;
+        this.homeCliente = homeCliente;
         this.cadastroUsuario.btnCadastrar.addActionListener(this);
+        this.homeCliente.btnAddServico.addActionListener(this);
+        this.homeCliente.btnShowList.addActionListener(this);
         
     }
 
@@ -36,7 +45,7 @@ public class ClienteController implements ActionListener{
             cliente.setEndereco(this.cadastroUsuario.txtEndereco.getText());
             cliente.setTelefone(this.cadastroUsuario.txtTelefone.getText());
             cliente.setIdade(Integer.parseInt(this.cadastroUsuario.txtIdade.getText()));
-            
+            JOptionPane.showMessageDialog(null, "Seja Bem vindo(a) " + cliente.getNome());
             if(this.clienteDb.insertCliente(cliente)){
                 JOptionPane.showMessageDialog(null, "Sucesso ao inserir o cliente ao banco");
             }else{

@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Servico;
 import model.ServicoDB;
 import views.CadastroServico;
+import views.HomeCliente;
 import views.ListaServicos;
 
 /**
@@ -21,9 +22,11 @@ import views.ListaServicos;
  * @author francisleide
  */
 public class ServicoController implements ActionListener{
-    private CadastroServico cadastroServico;
+    CadastroServico cadastroServico;
     private ServicoDB servicoDB;
-    private ListaServicos listaServicos;
+    public ListaServicos listaServicos;
+    public HomeCliente homeCliente;
+    
     public ServicoController(CadastroServico cadastroServico,ListaServicos listaServicos,ServicoDB servicoDB){
         this.servicoDB = servicoDB;
         this.cadastroServico = cadastroServico;
@@ -40,12 +43,11 @@ public class ServicoController implements ActionListener{
             servico.setCategoria(this.cadastroServico.categoria.getSelectedItem().toString()); ///////////////////////////////
             servico.setDescricao(this.cadastroServico.descricao.getText());
             System.out.println(servico.getStatus());
-            this.servicoDB.insertServico(servico);
-            
+            servicoDB.connect();
            if(this.servicoDB.insertServico(servico)){
-               JOptionPane.showMessageDialog(null, "Sucesso ao inserir o café!");
+               JOptionPane.showMessageDialog(null, "Sucesso ao inserir o servico!");
+               servicoDB.connect();
                fillTable(this.listaServicos.tabelaServico);
-               this.listaServicos.setVisible(true);
            }else{
                JOptionPane.showMessageDialog(null, "Erro ao inserir os dados", "", JOptionPane.ERROR_MESSAGE);
            }
@@ -60,16 +62,16 @@ public class ServicoController implements ActionListener{
         //adicionar as colunas com os nomes que a gente quer que seja exibido
         defaultTable.addColumn("Nome");
         defaultTable.addColumn("Categoria");
-        defaultTable.addColumn("Descriçao");
+        defaultTable.addColumn("Descrição");
         defaultTable.addColumn("Status");
         // criar as colunas de cada linha
         Object [] colunas  = new Object[4];
         ArrayList<Servico> servicos = this.servicoDB.listServico();
-        for (Servico serv : servicos) {
-            colunas[0] = serv.getNome();
-            colunas[1] = serv.getCategoria();
-            colunas[2] = serv.getDescricao();
-            colunas[3] = serv.getStatus();
+        for (Servico servico : servicos) {
+            colunas[0] = servico.getNome();
+            colunas[1] = servico.getCategoria();
+            colunas[2] = servico.getDescricao();
+            colunas[3] = servico.getStatus();
             defaultTable.addRow(colunas);
         }
     }

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 
 
 /**
@@ -20,7 +21,7 @@ public class ClienteDb {
     private ResultSet resultSet;
     
     public boolean connect(){
-        String server = "jdbc:mysql://localhost:3306/deal";
+        String server = "jdbc:mysql://localhost:3306/projetodeal";
         String user = "root";
         String pwd = "1234";
         String driver = "com.mysql.cj.jdbc.Driver";
