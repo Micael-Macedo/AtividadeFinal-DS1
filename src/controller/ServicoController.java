@@ -21,10 +21,11 @@ import views.ListaServicos;
  * @author francisleide
  */
 public class ServicoController implements ActionListener{
-    private CadastroServico cadastroServico;
-    private ServicoDB servicoDB;
-    private ListaServicos listaServicos;
-    public ServicoController(CadastroServico cadastroServico,ListaServicos listaServicos,ServicoDB servicoDB){
+    public CadastroServico cadastroServico;
+    public ServicoDB servicoDB;
+    public ListaServicos listaServicos; 
+    
+    public ServicoController(CadastroServico cadastroServico,ListaServicos listaServicos, ServicoDB servicoDB){
         this.servicoDB = servicoDB;
         this.cadastroServico = cadastroServico;
         this.listaServicos = listaServicos;

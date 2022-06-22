@@ -17,8 +17,9 @@ import views.CadastroUsuario;
  * @author micae
  */
 public class ClienteController implements ActionListener{
-    private CadastroUsuario cadastroUsuario;
-    private ClienteDb clienteDb;
+    public CadastroUsuario cadastroUsuario;
+    public ClienteDb clienteDb;
+  
     
     public ClienteController(CadastroUsuario cadastroUsuario, ClienteDb clienteDb){
         this.cadastroUsuario = cadastroUsuario;
@@ -36,13 +37,11 @@ public class ClienteController implements ActionListener{
             cliente.setEndereco(this.cadastroUsuario.txtEndereco.getText());
             cliente.setTelefone(this.cadastroUsuario.txtTelefone.getText());
             cliente.setIdade(Integer.parseInt(this.cadastroUsuario.txtIdade.getText()));
-            
             if(this.clienteDb.insertCliente(cliente)){
                 JOptionPane.showMessageDialog(null, "Sucesso ao inserir o cliente ao banco");
             }else{
                 JOptionPane.showMessageDialog(null, "Erro ao inserir ao banco de dados");
             }
-        
         }
     }
       

@@ -82,7 +82,7 @@ public class CadastroServico extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(nome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnCadastro))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

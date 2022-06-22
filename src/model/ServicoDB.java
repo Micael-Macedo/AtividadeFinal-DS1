@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
 import java.sql.Connection;
@@ -28,8 +24,6 @@ public class ServicoDB {
             Class.forName(driver);
             this.connection = (Connection)DriverManager.getConnection(server, user, pwd);
             this.statement = (Statement)this.connection.createStatement();
-            System.out.println(this.statement);
-            System.out.println("Sucesso ao entrar no banco serviços");
         }catch(Exception e){
             System.out.println("Erro ao conectar ao banco: "+e);
         }
@@ -43,8 +37,8 @@ public class ServicoDB {
     
      public boolean insertServico(Servico servico){
         try{
-            String sql = "insert into servicos"
-                    +"(nome,descricao,categoria,status) "
+            String sql = "insert into servicos "
+                    +"(nome, descricao, categoria, status) "
                     +"values ('"+servico.getNome()
                     +"', '"+servico.getDescricao()
                     +"', '"+servico.getCategoria()
